@@ -6,6 +6,7 @@ public class License {
 	public int id = 0;
 	public static Car LicenseHolder;
 	public static int ValidGarageId;
+	public String LP;
 	
 	
 	public License(Car lh, int vg) {
@@ -14,11 +15,12 @@ public class License {
     	this.id = ++UniqueId;
 	}
 
-	static String GetLicenseHolderPlate() {
-		return Car.LicensePlate;
+	public String GetLicenseHolderPlate(Car car) {
+		LP = car.GetLicensePlate();
+		return LP;
 	}
 	
-	static boolean CheckIfValidGarageId() {
+	public boolean CheckIfValidGarageId() {
 		if (ValidGarageId == Garage.UniqueId) {
 			System.out.println("Valid");
 			return true;

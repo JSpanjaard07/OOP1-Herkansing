@@ -8,8 +8,8 @@ public class Oop1HerkansingMain {
 		Garage LittleStJames = new Garage(2);
 		License KlokstraatLicense = new License(One, 2);
 		
-		System.out.println(Klokstraat.UniqueId);
-		System.out.println(KlokstraatLicense.ValidGarageId);
+		//System.out.println(Klokstraat.UniqueId);
+		//System.out.println(KlokstraatLicense.ValidGarageId);
 		
 		One.GetBrand();
 		System.out.println(Klokstraat.ParkedCars);
@@ -17,7 +17,7 @@ public class Oop1HerkansingMain {
 		LittleStJames.GetId();
 		Klokstraat.ParkCar(One);
         Klokstraat.GetCarsByModel("Twenty");
-        KlokstraatLicense.GetLicenseHolderPlate();
+        KlokstraatLicense.GetLicenseHolderPlate(One);
         KlokstraatLicense.CheckIfValidGarageId();
         Klokstraat.CheckIfValid(One, KlokstraatLicense);
 

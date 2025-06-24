@@ -25,7 +25,7 @@ public class Garage {
     }
     
     public boolean CheckIfValid(Car car, License license) {
-    	if (license.GetLicenseHolderPlate() == car.LicensePlate) {
+    	if (license.GetLicenseHolderPlate(car) == car.LicensePlate) {
     		if (license.CheckIfValidGarageId() == true) {
         		if (CurrentCapacity < MaxCapacity) {
         			System.out.println("Can park");
