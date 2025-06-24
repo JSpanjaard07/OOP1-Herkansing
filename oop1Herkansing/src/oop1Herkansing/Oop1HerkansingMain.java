@@ -3,16 +3,23 @@ package oop1Herkansing;
 public class Oop1HerkansingMain {
 
 	public static void main(String[] args) {
-		Car One = new Car("123", "BMW", "I8 E-Drive", "Blue");
+		Car One = new Car("123", "BMW", "Twenty", "Blue");
 		Garage Klokstraat = new Garage(16);
 		Garage LittleStJames = new Garage(2);
+		License KlokstraatLicense = new License(One, 2);
+		
+		System.out.println(Klokstraat.UniqueId);
+		System.out.println(KlokstraatLicense.ValidGarageId);
 		
 		One.GetBrand();
 		System.out.println(Klokstraat.ParkedCars);
 		Klokstraat.GetId();
 		LittleStJames.GetId();
 		Klokstraat.ParkCar(One);
-        System.out.println("Model of car with ID 0: " + Klokstraat.GetModel(1));
+        Klokstraat.GetCarsByModel("Twenty");
+        KlokstraatLicense.GetLicenseHolderPlate();
+        KlokstraatLicense.CheckIfValidGarageId();
+        Klokstraat.CheckIfValid(One, KlokstraatLicense);
 
 
 	}

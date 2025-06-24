@@ -1,12 +1,15 @@
 package oop1Herkansing;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Garage {
 	static int UniqueId = 0;
 	public int MaxCapacity;
 	public int id = 0;
 	String StrId = String.valueOf(id);
+	
+	Scanner sc = new Scanner(System.in);
 	
     public ArrayList<Car> ParkedCars = new ArrayList<>();
     
@@ -21,14 +24,21 @@ public class Garage {
     	ParkedCars.add(car);
     }
     
-    public boolean CheckIfValid() {
-    	if (MaxCapacity > 0) {
-    		
-    		return true;
-    	}
-    	else {
+    public boolean CheckIfValid(Car car, License license) {
+    	if (license.GetLicenseHolderPlate() == car.LicensePlate) {
+    		if (license.CheckIfValidGarageId() == true) {
+        		if (CurrentCapacity < MaxCapacity) {
+        			System.out.println("Can park");
+        			return true;
+        		}
+        		else {
+        			return false;
+        		}
+        	}
     		return false;
     	}
+    	return false;
+    	
     }
     
     public int GetId() {
@@ -36,17 +46,30 @@ public class Garage {
     	return id;
     }
     
+    
+    
     public void GetCapacity() {
     	 System.out.println(CurrentCapacity);
     }
     
-    public String GetModel(int id) {
+    public ArrayList<Car> GetCarsByModel(String ModelSearch) {
+    	ArrayList<Car> cars = new ArrayList<Car>();
         for (Car Car : ParkedCars) {
-            if (Car.GetId() == id) {
-                return Car.GetModel();
+            if (Car.GetModel() == ModelSearch) {
+                return cars;
             }
         }
-        return "Car with ID " + id + " not found.";
+        return cars;
+    }
+    
+    public ArrayList<Car> GetCarsByLicense(String LicenseSearch) {
+    	ArrayList<Car> cars = new ArrayList<Car>();
+        for (Car Car : ParkedCars) {
+            if (Car.GetModel() == LicenseSearch) {
+                return cars;
+            }
+        }
+        return cars;
     }
     
     public String GetLicense(int id) {

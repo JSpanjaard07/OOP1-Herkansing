@@ -1,9 +1,9 @@
 package oop1Herkansing;
 
 public class Car {
-	public String LicensePlate;
+	public static String LicensePlate;
 	public String Brand;
-	public String Model;
+	public static String Model;
 	public String Color;
 	static int UniqueId = 0;
 	public int id = 0;
@@ -21,7 +21,7 @@ public class Car {
         return id;
     }
 	
-	public String GetLicensePlate() {
+	static String GetLicensePlate() {
 		System.out.println(LicensePlate);
 		return LicensePlate;		
 	}
